@@ -44,7 +44,7 @@ func main() {
 			TaskQueue: "default",
 		},
 		SimpleWorkflow,
-		"simple workflow",
+		"John Smith",
 	)
 	if err != nil {
 		log.Fatalln("Unable to execute workflow", err)
