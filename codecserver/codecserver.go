@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net/http"
 
@@ -26,7 +27,6 @@ var originFlag string
 func init() {
 	flag.StringVar(&originFlag, "origin", "", "Temporal Web UI URL.")
 }
-
 
 func main() {
 	flag.Parse()
