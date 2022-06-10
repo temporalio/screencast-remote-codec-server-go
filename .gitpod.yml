@@ -1,0 +1,14 @@
+tasks:
+  - name: Temporalite
+    init: go install github.com/DataDog/temporalite/cmd/temporalite@latest
+    command: temporalite start --namespace default --ephemeral
+  - name: Demo
+    init: go mod download
+    command: "echo 'Have a play with the samples, for example: go run ./01-before-codec-setup'"
+
+ports:
+  - port: 7233 # temporal server
+    onOpen: ignore
+  - port: 8233 # temporal web
+    onOpen: open-browser
+    
