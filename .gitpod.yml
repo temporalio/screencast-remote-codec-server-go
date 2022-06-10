@@ -3,6 +3,7 @@ tasks:
     init: go install github.com/DataDog/temporalite/cmd/temporalite@latest
     command: temporalite start --namespace default --ephemeral
   - name: Remote Codec Server
+    init: go mod download
     command: |
       go run ./codecserver -origin $(gp url 8233) &
       echo "Remote Codec Server Endpoint: $(gp url 8234)"
