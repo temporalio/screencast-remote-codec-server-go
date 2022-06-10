@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/temporalio/screencasts/remote-codec-server/codec"
+	"github.com/temporalio/screencast-remote-codec-server-go/codec"
 	"go.temporal.io/sdk/converter"
 )
 
