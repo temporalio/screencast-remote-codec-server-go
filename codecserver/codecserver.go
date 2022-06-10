@@ -21,9 +21,22 @@ func NewPayloadCodecCORSHTTPHandler(origin string, next http.Handler) http.Handl
 	})
 }
 
+var originFlag string
+
+func init() {
+	flag.StringVar(&originFlag, "origin", "", "Temporal Web UI URL.")
+}
+
+
 func main() {
+	flag.Parse()
+
+	if originFlag == "" {
+		log.Fatal("Please set the origin flag to enable CORS.")
+	}
+
 	handler := converter.NewPayloadCodecHTTPHandler(codec.NewSnappyCodec())
-	handler = NewPayloadCodecCORSHTTPHandler("http://localhost:8233", handler)
+	handler = NewPayloadCodecCORSHTTPHandler(originFlag, handler)
 
 	http.Handle("/", handler)
 

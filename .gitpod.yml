@@ -12,4 +12,7 @@ ports:
     onOpen: ignore
   - port: 8233 # temporal web
     onOpen: open-browser
+  - port: 8234 # remote codec server
+    onOpen: ignore
+    visibility: public
     
