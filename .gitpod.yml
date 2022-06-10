@@ -3,12 +3,11 @@ tasks:
     init: go install github.com/DataDog/temporalite/cmd/temporalite@latest
     command: temporalite start --namespace default --ephemeral
   - name: Remote Codec Server
-    init: go mod download
-    command: |
-      go run ./codecserver -origin $(gp url 8233) &
-      echo "Remote Codec Server Endpoint: $(gp url 8234)"
+    command: go run ./codecserver -origin $(gp url 8233)
   - name: Shell
-    init: go install github.com/temporalio/tctl/cmd/tctl@v1.16.1      
+    init: go install github.com/temporalio/tctl/cmd/tctl@v1.16.1
+    command: |
+      echo -e "\nRemote Codec Server Endpoint: $(gp url 8234)\n"
 
 ports:
   - port: 7233 # temporal server
