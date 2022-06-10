@@ -2,8 +2,10 @@ tasks:
   - name: Temporalite
     init: go install github.com/DataDog/temporalite/cmd/temporalite@latest
     command: temporalite start --namespace default --ephemeral
+  - name: tctl
+    init: go install github.com/temporalio/tctl/cmd/tctl@v1.16.1
+    command: tctl --version
   - name: Demo
-    init: go mod download
 
 ports:
   - port: 7233 # temporal server
